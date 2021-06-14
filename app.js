@@ -97,13 +97,13 @@ function listAlbums() {
       });
       var message = photos.length ?
         '<p></p>' :
-        '<p>You do not have any photos in this album. Please add photos.</p>';
+        '<p></p>';
       var htmlTemplate = [
 
         message,
-        '<div>',
-          getHtml(photos),
-        '</div>',
+        // '<div>',
+        //   getHtml(photos),
+        // '</div>',
         '<input id="photoupload" type="file" accept="image/*">',
         '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
           '답안 제출하기',
@@ -132,7 +132,7 @@ function listAlbums() {
       if (err) {
         return alert('There was an error uploading your photo: ', err.message);
       }
-      alert('Successfully uploaded photo.');
+      alert('성공적으로 제출했습니다!');
       viewAlbum(albumName);
     });
   }

@@ -5,19 +5,19 @@
 
 #photoupload{
     top: 40vh;
-    left: 25vw;
-    font-size: 5vw;
+    left: 19vw;
+    font-size: 6vw;
     text-align: center;
     position: fixed;
-    height: 20vh;
+    height: 200vh;
     width: 200vw;
 }
 
 #addphoto{
     position: fixed;
     top: 60vh;
-    left: 20vw;
+    left: 10vw;
     font-size: 10vw;
-    width: 60vw;
+    width: 80vw;
     height: 10vh;
 }

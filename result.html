@@ -10,14 +10,15 @@
     <input id="rancode" type="text" value="0000000">
     <button onclick="uploadcode()">코드입력</button>
     <div id="content">
-      <div id="pitchscore"></div>
-      <div id="ascore"></div>
-      <div id="bscore"></div>
-      <div id="cscore"></div>
-      <div id="pitchrate"></div>
-      <div id="arate"></div>
-      <div id="brate"></div>
-      <div id="crate"></div>
+      음감 점수 : <div id="pitchscore"></div>
+      단성 점수 : <div id="ascore"></div>
+      2성 점수 : <div id="bscore"></div>
+      4성 점수 : <div id="cscore"></div>
+      음감 등수 : <div id="pitchrate"></div>
+      단성 등수 : <div id="arate"></div>
+      2성 등수 : <div id="brate"></div>
+      4성 등수 : <div id="crate"></div>
+      <div id="error"></div>
     </div>
     <script type="text/javascript">
 
@@ -25,7 +26,7 @@
       function uploadcode(){
         
         const pitchscore = document.getElementById("pitchscore")
-        const ascore = document.getElementById("ascroe")
+        const ascore = document.getElementById("ascore")
         const bscore = document.getElementById("bscore")
         const cscore = document.getElementById("cscore")
         const pitchrate = document.getElementById("pitchrate")
@@ -62,7 +63,7 @@
 
             }
             if(!founded){
-              console.log("not founded")
+              prompt("잘못된 코드입니다!")
             }
           } 
         });

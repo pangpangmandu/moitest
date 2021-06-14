@@ -7,13 +7,31 @@
   <body>
     <p>결과 보기</p>
     
-    <input id="rancode" type="text" value="000000">
-    <button onclick="uploadcode()" value="코드입력"></button>
-
+    <input id="rancode" type="text" value="0000000">
+    <button onclick="uploadcode()">코드입력</button>
+    <div id="content">
+      <div id="pitchscore"></div>
+      <div id="ascore"></div>
+      <div id="bscore"></div>
+      <div id="cscore"></div>
+      <div id="pitchrate"></div>
+      <div id="arate"></div>
+      <div id="brate"></div>
+      <div id="crate"></div>
+    </div>
     <script type="text/javascript">
 
 
       function uploadcode(){
+        
+        const pitchscore = document.getElementById("pitchscore")
+        const ascore = document.getElementById("ascroe")
+        const bscore = document.getElementById("bscore")
+        const cscore = document.getElementById("cscore")
+        const pitchrate = document.getElementById("pitchrate")
+        const arate = document.getElementById("arate")
+        const brate = document.getElementById("brate")
+        const crate = document.getElementById("crate")
 
         var code = document.getElementById("rancode").value;
         gapi.client.sheets.spreadsheets.values.get({
@@ -28,9 +46,18 @@
               var row = range.values[i];
               if(code == row[0]){
                 founded = true;
-                for (i =1; i< row.length ;i++){
-                console.log(row[i])
-                }     
+                // for (i =1; i< row.length ;i++){
+                // console.log(row[i])
+                // }     
+                pitchscore.innerHTML = row[5]
+                ascore.innerHTML = row[6]
+                bscore.innerHTML = row[7]
+                cscore.innerHTML = row[8]
+                pitchrate.innerHTML = row[9]
+                arate.innerHTML = row[10]
+                brate.innerHTML = row[11]
+                crate.innerHTML = row[12]
+
               }
 
             }

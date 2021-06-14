@@ -6,11 +6,12 @@
 #photoupload{
     top: 40vh;
     left: 19vw;
-    font-size: 6vw;
+    font-size: 50px;
+    line-height: 200px;
     text-align: center;
     position: fixed;
-    height: 200vh;
-    width: 200vw;
+    height: 60vh;
+    width: 60vw;
 }
 
 #addphoto{

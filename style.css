@@ -10,13 +10,16 @@
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
     top: 40vh;
-    left: 30vw;
-    font-size: 10vw;
+    left: 10vw;
+    font-size: 5vw;
     text-align: center;
     position: fixed;
-    height: 20vh;
-    width: 40vw;
+    height: 6vh;
+    width: 90vw;
+    z-index: 1;
 }
+
+
 
 #addphoto{
     position: fixed;

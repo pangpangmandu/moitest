@@ -8,7 +8,7 @@
     <p>결과 보기</p>
     
     <input id="rancode" type="text">
-    <button onclick="uploadcode()"></button>
+    <button onclick="uploadcode()" value="코드입력"></button>
 
     <script type="text/javascript">
 
@@ -23,14 +23,19 @@
           var range = response.result;
           if (range.values.length > 0) {
 
+            var founded = false;
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
               if(code == row[i]){
+                founded = true;
                 for (i =1; i< row.length ;i++){
                 console.log(row[i])
                 }     
               }
 
+            }
+            if(!founded){
+              console.log("not founded")
             }
           } 
         });

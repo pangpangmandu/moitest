@@ -7,7 +7,7 @@
   <body>
     <p>결과 보기</p>
     
-    <input id="rancode" type="text">
+    <input id="rancode" type="text" value="000000">
     <button onclick="uploadcode()" value="코드입력"></button>
 
     <script type="text/javascript">
@@ -26,7 +26,7 @@
             var founded = false;
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
-              if(code == row[i]){
+              if(code == row[0]){
                 founded = true;
                 for (i =1; i< row.length ;i++){
                 console.log(row[i])

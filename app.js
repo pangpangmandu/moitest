@@ -24,8 +24,8 @@ function listAlbums() {
           var prefix = commonPrefix.Prefix;
           var albumName = decodeURIComponent(prefix.replace('/', ''));
           return getHtml([
-            '<li>',
-              '<span onclick="deleteAlbum(\'' + albumName + '\')">X</span>',
+            '<li style="list-style: none">',
+              // '<span onclick="deleteAlbum(\'' + albumName + '\')">X</span>',
               '<span onclick="viewAlbum(\'' + albumName + '\')">',
                 albumName,
               '</span>',
@@ -34,19 +34,19 @@ function listAlbums() {
         });
         var message = albums.length ?
           getHtml([
-            '<p>Click on an album name to view it.</p>',
-            '<p>Click on the X to delete the album.</p>'
+            // '<p>Click on an album name to view it.</p>',
+            // '<p>Click on the X to delete the album.</p>'
           ]) :
           '<p>You do not have any albums. Please Create album.';
         var htmlTemplate = [
-          '<h2>Albums</h2>',
+          // '<h2>Albums</h2>',
           message,
           '<ul>',
             getHtml(albums),
-          '</ul>',
-          '<button onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
-            'Create New Album',
-          '</button>'
+          // '</ul>',
+          // '<button onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
+          //   'Create New Album',
+          // '</button>'
         ]
         document.getElementById('app').innerHTML = getHtml(htmlTemplate);
       }
@@ -93,39 +93,37 @@ function listAlbums() {
         var photoKey = photo.Key;
         var photoUrl = bucketUrl + encodeURIComponent(photoKey);
         return getHtml([
-          '<span>',
-            '<div>',
-              '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
-            '</div>',
-            '<div>',
-              '<span onclick="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
-                'X',
-              '</span>',
-              '<span>',
-                photoKey.replace(albumPhotosKey, ''),
-              '</span>',
-            '</div>',
-          '</span>',
+          // '<span>',
+          //   '<div>',
+          //     '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
+          //   '</div>',
+          //   '<div>',
+          //     '<span onclick="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
+          //       'X',
+          //     '</span>',
+          //     '<span>',
+          //       photoKey.replace(albumPhotosKey, ''),
+          //     '</span>',
+          //   '</div>',
+          // '</span>',
         ]);
       });
       var message = photos.length ?
-        '<p>Click on the X to delete the photo</p>' :
+        '<p></p>' :
         '<p>You do not have any photos in this album. Please add photos.</p>';
       var htmlTemplate = [
-        '<h2>',
-          'Album: ' + albumName,
-        '</h2>',
+
         message,
         '<div>',
           getHtml(photos),
         '</div>',
         '<input id="photoupload" type="file" accept="image/*">',
         '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
-          'Add Photo',
+          '답안 제출하기',
         '</button>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
+        // '<button onclick="listAlbums()">',
+        //   'Back To Albums',
+        // '</button>',
       ]
       document.getElementById('app').innerHTML = getHtml(htmlTemplate);
     });

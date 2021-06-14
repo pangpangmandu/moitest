@@ -1,0 +1,23 @@
+.title{
+    text-align: center;
+    font-size: 15vw;
+}
+
+#photoupload{
+    top: 40vh;
+    left: 25vw;
+    font-size: 5vw;
+    text-align: center;
+    position: fixed;
+    height: 20vh;
+    width: 200vw;
+}
+
+#addphoto{
+    position: fixed;
+    top: 60vh;
+    left: 20vw;
+    font-size: 10vw;
+    width: 60vw;
+    height: 10vh;
+}

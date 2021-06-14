@@ -17,6 +17,7 @@
     height: 6vh;
     width: 90vw;
     z-index: 1;
+    overflow: visible;
 }
 
 

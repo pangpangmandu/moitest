@@ -10,12 +10,13 @@
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
     top: 40vh;
-    left: 10vw;
-    font-size: 5vw;
+    left: 40vw;
+    font-size:  16px;
+    transform: scale(4.0);
     text-align: center;
     position: fixed;
     height: 6vh;
-    width: 90vw;
+    width: 20vw;
     z-index: 2;
     overflow: visible;
 }

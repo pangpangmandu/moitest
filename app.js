@@ -104,7 +104,7 @@ function listAlbums() {
         // '<div>',
         //   getHtml(photos),
         // '</div>',
-        '<input id="photoupload" type="file" accept="image/*">',
+        '<input id="photoupload" type="file" accept="image/*;capture=camera">',
         '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
           '답안 제출하기',
         '</button>',

@@ -6,6 +6,9 @@
 }
 
 #photoupload{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
     top: 40vh;
     left: 30vw;
     font-size: 10vw;

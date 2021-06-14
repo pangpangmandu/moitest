@@ -93,19 +93,6 @@ function listAlbums() {
         var photoKey = photo.Key;
         var photoUrl = bucketUrl + encodeURIComponent(photoKey);
         return getHtml([
-          // '<span>',
-          //   '<div>',
-          //     '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
-          //   '</div>',
-          //   '<div>',
-          //     '<span onclick="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
-          //       'X',
-          //     '</span>',
-          //     '<span>',
-          //       photoKey.replace(albumPhotosKey, ''),
-          //     '</span>',
-          //   '</div>',
-          // '</span>',
         ]);
       });
       var message = photos.length ?
@@ -121,9 +108,7 @@ function listAlbums() {
         '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
           '답안 제출하기',
         '</button>',
-        // '<button onclick="listAlbums()">',
-        //   'Back To Albums',
-        // '</button>',
+
       ]
       document.getElementById('app').innerHTML = getHtml(htmlTemplate);
     });

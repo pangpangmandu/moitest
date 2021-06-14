@@ -6,14 +6,15 @@
   </head>
   <body>
     <p>결과 보기</p>
-adasdsda
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
-
-    <pre id="content" style="white-space: pre-wrap;"></pre>
+    
+    <input id="rancode" type="text">
+    <button onclick=""></button>
 
     <script type="text/javascript">
+
+      var code = document.getElementById("rancode").files;
+      var file = files[0];
+
       // Client ID and API key from the Developer Console
       var CLIENT_ID = '500209180373-3k9snd0ior6og1ckmaqnfdf13kd5c66d.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyBfEndhMriWnnt6UClqbRbK90Io6YsmdTI';
@@ -58,7 +59,7 @@ adasdsda
       function listMajors() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1gJsdW120PRzu1143cPSqTW-GuUWUrMW-M_P2mu3lCzg',
-          range: 'sample!A1:N1',
+          range: 'sample!A:N',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {

@@ -49,12 +49,13 @@
           scope: SCOPES
         }).then(function () {
           // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        //   gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
+        //   // Handle the initial sign-in state.
+        //   updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        //   authorizeButton.onclick = handleAuthClick;
+        //   signoutButton.onclick = handleSignoutClick;
+           listMajors();
         }, function(error) {
           appendPre(JSON.stringify(error, null, 2));
         });
@@ -129,7 +130,6 @@
     </script>
 
     <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};listMajors()"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>

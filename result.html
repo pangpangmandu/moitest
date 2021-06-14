@@ -58,7 +58,7 @@
       function listMajors() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1gJsdW120PRzu1143cPSqTW-GuUWUrMW-M_P2mu3lCzg/edit?usp=sharing',
-          range: '모의고사 회차별 시트 Data!A:N',
+          range: '모의고사 회차별 시트!A:N',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {

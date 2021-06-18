@@ -1,33 +1,60 @@
-.title{
-    text-align: center;
-    left: 10vw;
-    font-size: 15vw;
-    position: fixed;
-}
 
-#photoupload{
-    -moz-appearance:none; /* Firefox */
-    -webkit-appearance:none; /* Safari and Chrome */
-    appearance:none;
-    top: 40vh;
-    left: 40vw;
-    font-size:  16px;
-    transform: scale(4.0);
-    text-align: center;
-    position: fixed;
-    height: 6vh;
-    width: 20vw;
-    z-index: 2;
-    overflow: visible;
-}
+    .title{
+        text-align: center;
+        left: 10vw;
+        font-size: 15vw;
+        position: fixed;
+        color: #8B0000 !important;
+    }
+    
+    #photoupload{
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+        top: 40vh;
+        left: 40vw;
+        font-size:  16px;
+        transform: scale(4.0);
+        text-align: center;
+        position: fixed;
+        height: 6vh;
+        width: 20vw;
+        z-index: 2;
+        overflow: visible;
+        color: #8B0000 !important;
+    }
+    
+    
+    
+    #addphoto{
+        position: fixed;
+        top: 60vh;
+        left: 10vw;
+        font-size: 10vw;
+        width: 80vw;
+        height: 10vh;
+        color: #8B0000;
+        border-radius: 3%;
+    }
+    
+    
+    .hidden{
+        display: none;
+    }
 
+    body{
+        background: rgb(235, 224, 210);
+        color: #8B0000;
+    }
 
+    #code{
+        position: fixed;
+        top:20vh;
+        left: 20vw;
+        width: 60vw;
+        height: 5vh;
+        font-size: 8vw;
+        color: rgb(99, 99, 122);
+        text-align: center;
+    }
 
-#addphoto{
-    position: fixed;
-    top: 60vh;
-    left: 10vw;
-    font-size: 10vw;
-    width: 80vw;
-    height: 10vh;
-}

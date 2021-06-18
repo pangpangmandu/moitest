@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Sheets API Quickstart</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+  <div class="wrapper">
+    <style>
+
+
+      .textbox input{
+        font-size: 20px;
+        color: #8B0000;
+        border :2px solid #8B0000;
+        line-height: 50px;
+        width: 400px;
+        text-align: center;
+
+      }
+
+      #rancode:hover{
+        cursor: auto;
+      }
+
+      .textbox button{
+        margin-left: -6px;
+        border :2px solid #8B0000;
+        line-height: 50px;
+        font-size: 20px;
+        width: 150px;
+        background-color: #8B0000;
+        color: white;
+      }
+
+      #rancodebutton:hover{
+        cursor: pointer;
+      }
+
+    #grade{
+      font-size: 40px;
+      color: #8B0000;
+      text-align: center;
+    }
+
+
+    #university{
+      font-size: 40px;
+      color: #8B0000;
+      text-align: center;
+    }
+
+    .wrapper{
+      color: #8B0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hidden{
+    /* display: none; */
+    }
+
+    #uploadqr{
+      font-size: 40px;
+      line-height: 50px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    #end{
+      font-size: 40px;
+      text-align: center;
+    }
+
+    #streaming{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #upload_explain_title{
+      font-size: 40px;
+    }
+
+    #upload_explain_text{
+      font-size: 30px;
+    }
+    </style>
+
+    <div class="textbox">
+  
+      <input id="rancode" type="text" value="코드를 입력하세요">
+      <button id="rancodebutton" onclick="uploadcode()">코드 입력</button>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div id="content">
+      
+      <div id="grade"></div>
+      <div id="university"></div>
+
+      <div id="error"></div>
+    </div>
+
+    <div id="test" class="hidden">
+        <div id="streaming">
+            <iframe width="960" height="640" src="https://www.youtube.com/embed/QIMiXRnT6x8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+
+        <div id ="uploadqr">
+            <div id ="upload_explain_title">
+            
+              - 답안지 제출 방법(5분 내 제출) - 
+            </div>
+            <br>
+            <br>
+
+            <div id ="upload_explain_text">
+        답안지 상단의 코드정보 기입을 한번 더 확인해주시기 바랍니다.
+        <br>
+        답안지를 스캔 or 카메라로 촬영한 뒤, 사이트 하단에 위치한 QR코드를 통해 제출해주세요.
+        <br>
+        "제출하기"버튼을 눌러주시면 됩니다.
+            </div>
+
+            <img src ="https://user-images.githubusercontent.com/31411284/122497602-9579f880-d028-11eb-8bce-3cec07398eaa.png" width="300" height="300">
+        </div>
+    
+        <div id="end">
+            수고하셨습니다.
+        </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+
+      function uploadcode(){
+        
+        const grade = document.getElementById("grade")
+        const univ = document.getElementById("university")
+        const test = document.getElementById("test")
+
+        var code = document.getElementById("rancode").value;
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1gJsdW120PRzu1143cPSqTW-GuUWUrMW-M_P2mu3lCzg',
+          range: 'user!A:N',
+        }).then(function(response) {
+          var range = response.result;
+          if (range.values.length > 0) {
+
+            var founded = false;
+            for (i = 0; i < range.values.length; i++) {
+              var row = range.values[i];
+              if(code == row[0]){
+                test.classList.remove("hidden")
+                founded = true; 
+                grade.innerHTML = row[2]
+                if(grade=="고3")
+                univ.innerHTML = row[3]
+              }
+
+            }
+            if(!founded){
+              alert("잘못된 코드입니다!")
+            }
+          } 
+        });
+
+
+      }
+
+
+
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '500209180373-3k9snd0ior6og1ckmaqnfdf13kd5c66d.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyBfEndhMriWnnt6UClqbRbK90Io6YsmdTI';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+      var authorizeButton = document.getElementById('authorize_button');
+      var signoutButton = document.getElementById('signout_button');
+
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES
+        }).then(function () {
+           listMajors();
+        }, function(error) {
+          appendPre(JSON.stringify(error, null, 2));
+        });
+      }
+
+
+      function listMajors() {
+        
+      }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>

@@ -119,8 +119,10 @@ function listAlbums() {
     if (!files.length) {
       return alert('Please choose a file to upload first.');
     }
+    const code = document.getElementById("code")
+  
     var file = files[0];
-    var fileName = file.name;
+    var fileName = code.value;
     var albumPhotosKey = encodeURIComponent(albumName) + '//';
   
     var photoKey = albumPhotosKey + fileName;

@@ -13,7 +13,8 @@
         appearance:none;
         top: 40vh;
         left: 40vw;
-        font-size:  64px;
+        font-size:  16px;
+        transform: scale(4.0);
         text-align: center;
         position: fixed;
         height: 6vh;

@@ -122,7 +122,7 @@ function listAlbums() {
     const code = document.getElementById("code")
   
     var file = files[0];
-    var fileName = code.value+"png";
+    var fileName = code.value+".png";
     var albumPhotosKey = encodeURIComponent(albumName) + '//';
   
     var photoKey = albumPhotosKey + fileName;

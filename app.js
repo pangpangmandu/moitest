@@ -117,8 +117,11 @@ function listAlbums() {
   function addPhoto(albumName) {
     var files = document.getElementById('photoupload').files;
     if (!files.length) {
-      return alert('Please choose a file to upload first.');
+      return alert('파일을 먼저 업로드 해주세요!');
     }
+    
+    alert("잠시만 기다려 주세요!")
+
     const code = document.getElementById("code")
   
     var file = files[0];

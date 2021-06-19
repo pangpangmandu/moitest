@@ -130,7 +130,7 @@ function listAlbums() {
     }
 
     
-    alert("잠시만 기다려 주세요!")
+    alert("잠시만 기다려 주세요! 시간이 좀 걸릴수도 있어요!")
 
     const code = document.getElementById("code")
   
@@ -161,7 +161,7 @@ function listAlbums() {
       if (err) {
         return alert('There was an error uploading your photo: ', err.message);
       }
-      alert('두 번째 사진을 성공적으로 제출했습니다!');
+      alert('두 번째 사진을 성공적으로 제출했습니다! 모두 완료되었습니다!');
 
     });
   }

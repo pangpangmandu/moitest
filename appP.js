@@ -104,7 +104,12 @@ function listAlbums() {
         // '<div>',
         //   getHtml(photos),
         // '</div>',
+        '<div id="first">',
+        '첫 번째 사진 업로드',
+        '</div>',
         '<input id="photoupload1" type="file" accept="image/*;capture=camera">',
+        '<div id="second">두 번째 사진 업로드</div>',
+        '<input id="photoupload2" type="file" accept="image/*;capture=camera">',
         '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
           '답안 제출하기',
         '</button>',
@@ -115,30 +120,49 @@ function listAlbums() {
   }
 
   function addPhoto(albumName) {
-    var files = document.getElementById('photoupload').files;
-    if (!files.length) {
+    var files1 = document.getElementById('photoupload1').files;
+    if (!files1.length) {
       return alert('파일을 먼저 업로드 해주세요!');
     }
+    var files2 = document.getElementById('photoupload2').files;
+    if (!files2.length) {
+      return alert('파일을 먼저 업로드 해주세요!');
+    }
+
     
     alert("잠시만 기다려 주세요!")
 
     const code = document.getElementById("code")
   
-    var file = files[0];
-    var fileName = code.value+".png";
+    var file1 = files1[0];
+    var file2 = files2[0];
+    var fileName1 = code.value+"-1.png";
+    var fileName2 = code.value+"-2.png";
     var albumPhotosKey = encodeURIComponent(albumName) + '//';
   
-    var photoKey = albumPhotosKey + fileName;
+    var photoKey1 = albumPhotosKey + fileName1;
+    var photoKey2 = albumPhotosKey + fileName2;
     s3.upload({
-      Key: photoKey,
-      Body: file,
+      Key: photoKey1,
+      Body: file1,
       ACL: 'public-read'
     }, function(err, data) {
       if (err) {
         return alert('There was an error uploading your photo: ', err.message);
       }
-      alert('성공적으로 제출했습니다!');
-      viewAlbum(albumName);
+      alert('첫 번째 사진을 성공적으로 제출했습니다!');
+
+    });
+    s3.upload({
+      Key: photoKey2,
+      Body: file2,
+      ACL: 'public-read'
+    }, function(err, data) {
+      if (err) {
+        return alert('There was an error uploading your photo: ', err.message);
+      }
+      alert('두 번째 사진을 성공적으로 제출했습니다!');
+
     });
   }
 

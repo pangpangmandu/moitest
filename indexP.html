@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.926.0.min.js"></script>
+  <script src="./appP.js"></script>
+  <script>
+    function getHtml(template) {
+      return template.join('\n');
+    }
+    viewAlbum('답안 제출하기');
+  </script>
+</head>
+
+<body>
+  <h1 class="title">청음모의고사</h1>
+  <div id="app"></div>
+  <div id="alert">코드가 확실한지 체크하세요!</div>
+  <input id="code" type="text" value="청음 코드작성">
+  </div>
+</body>
+
+</html>

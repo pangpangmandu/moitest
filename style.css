@@ -23,12 +23,45 @@
         overflow: visible;
         color: #8B0000 !important;
     }
+    #photoupload1{
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+        top: 45vh;
+        left: 40vw;
+        font-size:  16px;
+        transform: scale(4.0);
+        text-align: center;
+        position: fixed;
+        height: 3vh;
+        width: 20vw;
+        z-index: 2;
+        overflow: visible;
+        color: #8B0000 !important;
+    }
+    #photoupload2{
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+        top: 58vh;
+        left: 40vw;
+        font-size:  16px;
+        transform: scale(4.0);
+        text-align: center;
+        position: fixed;
+        height: 3vh;
+        width: 20vw;
+        z-index: 2;
+        overflow: visible;
+        color: #8B0000 !important;
+    }
+    
     
     
     
     #addphoto{
         position: fixed;
-        top: 60vh;
+        top: 70vh;
         left: 10vw;
         font-size: 10vw;
         width: 80vw;
@@ -64,3 +97,22 @@
         text-align: center;
     }
 
+
+
+    #first{
+        position: fixed;
+        top:36vh;
+        left: 28vw;
+        text-align: center;
+        font-size: 6vw;
+        color: black;
+    }
+
+    #second{
+        position: fixed;
+        top:48vh;
+        left: 28vw;
+        text-align: center;
+        font-size: 6vw;
+        color: black;
+    }

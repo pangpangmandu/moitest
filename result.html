@@ -5,19 +5,292 @@
     <meta charset="utf-8" />
   </head>
   <body>
+    <style>
+      .hidden{
+        display: none;
+      }
+
+      #content{
+        display: flex;
+        width: 80vw;
+        background-color: antiquewhite;
+      }
+
+
+      #average-rank-box{
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        height: 30vh;
+        text-align: center;
+      }
+
+      #average{
+        display: flex;
+        width: 30vw;
+      }
+      #total-average{
+        width: 15vw;
+        
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #total-average-text{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color: cyan;
+      }
+      #total-average-value{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color:darkmagenta
+      }
+      #domain-average{
+        width: 15vw;
+        
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #domain-average-text{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color: cyan;
+      }
+      #domain-average-value{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color:darkmagenta
+      }
+
+      #rank{
+        display: flex;
+        width: 30vw;
+      }
+
+      #total-rank{
+        width: 15vw;
+        
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #total-rank-text{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color: cyan;
+      }
+      #total-rank-value{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color:darkmagenta
+      }
+      #domain-rank{
+        width: 15vw;
+        
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #domain-rank-text{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color: cyan;
+      }
+      #domain-rank-value{
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color:darkmagenta
+      }
+
+      #domain-box{
+        display: flex;
+        flex-direction: column;
+        width: 25vw;
+        height: 30vh;
+        text-align: center;
+      }
+
+      #domain-code{
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+      }
+
+      #usercode{
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        display: flex;
+        background-color: aqua;
+      }
+      #usercode-text{
+        width: 10vw;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: aquamarine;
+      }
+
+      #usercode-value{
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: blueviolet;
+      }
+
+      #domain{
+        width: 100%;
+        height: 5vh;
+        line-height: 10vh;
+        vertical-align: 50%;
+        
+        display: flex;
+      }
+
+      #domain-text{
+        width: 10vw;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: aquamarine;
+      }
+
+      #domain-value{
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: blueviolet;
+      }
+      #testdate{
+        width: 100%;
+        height: 5vh;
+        line-height: 10vh;
+        vertical-align: 50%;
+        
+        display: flex;
+      }
+
+      #testdate-text{
+        width: 10vw;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: aquamarine;
+      }
+
+      #testdate-value{
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: 50%;
+        
+        background-color: blueviolet;
+      }
+
+      #total-score{
+        display: flex;
+        flex-direction: column;
+        width: 10vw;
+        height: 10vh;
+      }
+
+      #total-score-text{
+        width: 10vw;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color: darkolivegreen;
+      }
+      #total-score-value{
+        width: 10vw;
+        height: 5vh;
+        line-height: 5vh;
+        vertical-align: middle;
+        text-align: center;
+        background-color:darkorange;
+      }
+
+    </style>
     <p>결과 보기</p>
     
     <input id="rancode" type="text" value="0000000">
     <button onclick="uploadcode()">코드입력</button>
     <div id="content">
-      음감 점수 : <div id="pitchscore"></div>
-      단성 점수 : <div id="ascore"></div>
-      2성 점수 : <div id="bscore"></div>
-      4성 점수 : <div id="cscore"></div>
-      음감 등수 : <div id="pitchrate"></div>
-      단성 등수 : <div id="arate"></div>
-      2성 등수 : <div id="brate"></div>
-      4성 등수 : <div id="crate"></div>
+
+      <div id="domain-box">
+        <div id="domain-code">domain</div>
+        <div id="usercode">
+          <div id="usercode-text">수험코드</div>
+          <div id="usercode-value"></div>
+        </div>
+        <div id="domain">
+          <div id="domain-text">domain</div>
+          <div id="domain-value"></div>
+        </div>
+        <div id="testdate">
+          <div id="testdate-text">날짜</div>
+          <div id="testdate-value"></div>
+        </div>
+      </div>
+
+      <div id="average-rank-box">
+        <div id="average">
+          <div id="total-average">
+            <div id="total-average-text">전체 평균</div>
+            <div id="total-average-value">         </div>
+          </div>
+          <div id="domain-average">
+            <div id="domain-average-text"> domain 평균 </div>
+            <div id="domain-average-value">          </div>
+          </div>
+        </div>
+        <div id="rank">
+          <div id="total-rank">
+            <div id="total-rank-text">전체 석차</div>
+            <div id="total-rank-value"></div>
+          </div>
+          <div id="domain-rank">
+            <div id="domain-rank-text">domain 석차</div>
+            <div id="domain-rank-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="total-score">
+        <div id="total-score-text">총점</div>
+        <div id="total-score-value"></div>
+      </div>
+
       <div id="error"></div>
     </div>
     <script type="text/javascript">
@@ -36,8 +309,8 @@
 
         var code = document.getElementById("rancode").value;
         gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: '1gJsdW120PRzu1143cPSqTW-GuUWUrMW-M_P2mu3lCzg',
-          range: 'sample!A:N',
+          spreadsheetId: '1xbv14yffLenI2HMt3yZuEizAS_zFwzwSXTlvaVnNMa4',
+          range: '최종 결과 to 설빈님!A:N',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
@@ -45,7 +318,7 @@
             var founded = false;
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
-              if(code == row[0]){
+              if(code == row[1]){
                 founded = true;
                 // for (i =1; i< row.length ;i++){
                 // console.log(row[i])
